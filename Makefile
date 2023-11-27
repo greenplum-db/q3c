@@ -32,7 +32,7 @@ $(error "The $(PGXS) file not found. Check your PG installation. Exiting...")
 endif
 
 include $(PGXS)
-PGVERNEW := $(shell if [ $(MAJORVERSION) -ge 12 ] ; then echo N ; else echo O ; fi )
+PGVERNEW := $(shell if [ $(GP_MAJORVERSION) -ge 7 ] ; then echo N ; else echo O ; fi )
 
 ifeq ($(PGVERNEW), N)
 	PG_LIBS += -L$(shell $(PG_CONFIG) --pkglibdir)
